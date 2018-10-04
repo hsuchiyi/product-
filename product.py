@@ -9,6 +9,7 @@ print(products)
 for p in products:
    print(p[0], '的價格是', p[1])
 
-with open('product.csv', 'w') as f:
+with open('product.csv', 'w', encoding='utf-8') as f:
+   f.write('價格,商品\n')
    for p in products:
     f.write(p[0] + ',' + p[1] + '\n') 
