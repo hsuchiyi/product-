@@ -1,11 +1,19 @@
+import os 
 products = []
-with open('product.csv', 'r', encoding='utf-8') as f:
-    for line in f:
-        if '商品, 價格' in line:
-            continue  #直接反覆的概念
+if os.path.isfile('product.csv'):
+    print('yeah! 找到檔案了!')
+    with open('product.csv', 'r', encoding='utf-8') as f:
+        for line in f:
+            if '商品, 價格' in line:
+                continue  #直接反覆的概念
         name, price = line.strip().split(',')     #切成兩半後直接填入
         products.append([name, price])
-print(products)
+    print(products)
+else:
+   print('找不到檔案!')
+
+
+
 
 while True:
     name = input('請輸入商品名稱: ')
